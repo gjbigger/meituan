@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.mt.dao.DishDao">
+
+	<insert id="insert" parameterType="dish" useGeneratedKeys="true" keyProperty="id">
+		insert 
+		into t_dish(
+			name,
+			price,
+			monthSales,
+			storeId,
+			typeId,
+			detail
+		)
+		values(
+			#{name},
+			#{price},
+			#{monthSales},
+			#{storeId},
+			#{typeId},
+			#{detail}
+		)
+	</insert>
+	
+	
+	<update id="update" parameterType="dish">
+		update t_dish
+		set name = #{name},
+			price = #{price},
+			monthSales = #{monthSales},
+			storeId = #{storeId},
+			typeId = #{typeId},
+			detail = #{detail}
+	 	where id = #{id}
+	</update>
+	
+	
+	<update id="updateMonthSalesById">
+		update t_dish
+		set monthSales = monthSales + #{num}
+		where id = #{id}
+	</update>
+	
+	
+	
+	<delete id="delete">
+		delete
+		from t_dish
+		where id = #{id}
+	</delete>
+	
+	
+	<select id="selectByNameAndStoreId"  resultType="dish">
+		select *
+		from t_dish
+		where name = #{name} and storeId = #{storeId}
+	</select>
+	
+	
+	<select id="selectByStoreId"  resultType="dish">
+		select *
+		from t_dish
+		where storeId = #{storeId}
+	</select>
+	
+	
+	<select id="selectByTypeId"  resultType="dish">
+		select *
+		from t_dish
+		where typeId = #{typeId}
+	</select>
+	
+	
+	<select id="selectByParam" parameterType="dishQuery" resultType="dishDto">
+		select d.id as id, d.name as name, d.typeId as typeId, dt.name as typeName,
+			d.price as price, d.monthSales as monthSales, d.detail as detail, d.storeId as storeId
+		from t_dish d
+		left join t_dish_type dt on (d.typeId = dt.id)
+		where 1=1
+		<if test="queryStoreId != null">
+			and d.storeId =#{queryStoreId}
+		</if>
+		<if test="queryTypeId != null">
+			and d.typeId = #{queryTypeId}
+		</if>
+		<if test="queryName != null and queryName!=''">
+			and d.name like concat('%',#{queryName},'%')
+		</if>
+	</select>
+</mapper>

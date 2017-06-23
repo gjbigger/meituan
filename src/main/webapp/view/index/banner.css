@@ -1,0 +1,333 @@
+/**
+ * 评论、餐厅页面公用头部
+ *
+ * @author tracyqiu(heyanqiu@meituan.com)
+ * @date 2014-06-30
+ */
+
+.rest-info {
+  width: 865px;
+  height: 121px;
+  border: 1px solid #ebebeb;
+  border-right: 0 none;
+  background-color: #fff;
+  position: relative;
+  zoom: 1;
+  z-index: 3;
+}
+
+.rest-info .over .i-triangle-dn,
+.rest-info .tip-box-over .i-triangle-dn {
+  background-position:  -370px -69px;
+}
+
+.rest-info .details {
+  min-width: 330px;
+  max-width:52%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-right: 10px;
+  overflow: hidden;
+  _width: 350px;
+  _padding-right: 0px;
+  _display: inline;
+}
+
+.rest-info .red-text{
+  position: relative;
+  padding-left: 12px;
+  color: #ffa735;
+}
+
+.rest-info .red-text .i-arrsmallup{
+  position: absolute;
+  top: 5px;
+  left: 0px;
+}
+
+.rest-info .over { 
+  left: -1px;
+  background-color: #fff;
+  border: 1px solid #ebebeb;
+  border-top: 0;
+  overflow: visible;
+  box-shadow: 1px 1px 5px #ccc;
+  -moz-box-shadow: 1px 1px 5px #ccc;
+  -webkit-box-shadow: 1px 1px 5px #ccc;
+  -ms-box-shadow: 1px 1px 5px #ccc;
+  -o-box-shadow: 1px 1px 5px #ccc;
+}
+
+.rest-info .details .list {
+  float: left;
+}
+
+.rest-info .rest-info-down-wrap {
+
+  padding: 5px 0 10px 0;
+  border-top: 1px solid #ebebeb;
+
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  -ms-opacity: 0;
+  -o-opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.rest-info .over .rest-info-down-wrap {
+  opacity: 1;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  -ms-opacity: 1;
+  -o-opacity: 1;
+  filter: alpha(opacity=100);
+
+  -webkit-transition: opacity .6s ease;
+  -moz-transition: opacity .6s ease;
+  -ms-transition: opacity .6s ease;
+  -o-transition: opacity .6s ease;
+  transition: opacity .6s ease;
+}
+
+.rest-info .rest-info-down-wrap .info-detail {
+  width: 70%;
+  overflow: hidden;
+  font-weight: normal;
+}
+
+.rest-info .avatar {
+  margin-left: 20px;
+  margin-top: 15px;
+  width: 120px;
+  height: 90px;
+  line-height: 88px;
+  text-align: center;
+  _display: inline;
+  border: 1px solid #eeeeee;
+  overflow:hidden;
+}
+
+.rest-info .avatar img {
+  vertical-align: middle;
+}
+
+.rest-info .na {
+  margin-left: 18px;
+  padding-top: 20px;
+}
+
+.rest-info .na span {
+  font-size: 18px;
+  color: #313131;
+  display: inline-block;
+  height: 20px;
+  width: 270px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rest-info .stars {
+  margin-left: 18px;
+  margin-top: 10px;
+}
+
+.rest-info .star-ranking,
+.rest-info .star-score {
+  display: inline-block;
+  width: 72px;
+  height: 12px;
+  line-height: 12px;
+  overflow: hidden;
+  background-image: url("data:image/NGf;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAMCAYAAAC9QufkAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpEMzRBQ0IwMzg0RUMxMUU0OTE5MjhGN0M2Mjc2RUE4NCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpEMzRBQ0IwNDg0RUMxMUU0OTE5MjhGN0M2Mjc2RUE4NCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkQzNEFDQjAxODRFQzExRTQ5MTkyOEY3QzYyNzZFQTg0IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkQzNEFDQjAyODRFQzExRTQ5MTkyOEY3QzYyNzZFQTg0Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+AtcGTAAAAKtJREFUeNpi/D+fARtwgtL7MGQS/sOZLFg0MgJxG5RtCcT/GXAAJixivkBsDsV+DHgAumZ5IG5F4rdAxXBqzgPi7UD8GogfALEOkrwOVOw1VE0euuaTQGwHxCJ4XCgCVXMSm+ZIIP6LR/NfqJqT2Py8CYjL8Ggug6rBGWA38Wi+QSi05fBolidW8xMgzoHiJ/gMRk5hoJSUCcTzgPgXVGw2ECcBsSw2zQABBgCh5SAInEmqoQAAAABJRU5ErkJggg==");
+  background-repeat: repeat-x;
+  _background-image: url("yellow-star.png")/*tpa=http://waimai.meituan.com/static/img/yellow-star.png*/;
+}
+
+.rest-info .star-ranking {
+  margin-top: 1px;
+  background-image: url("data:image/NGf;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAMCAYAAAC9QufkAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpBMjcyQ0JGRDg3NjAxMUU0QTcwM0ZBNTRDMzMxNkExNyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpBMjcyQ0JGRTg3NjAxMUU0QTcwM0ZBNTRDMzMxNkExNyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkEyNzJDQkZCODc2MDExRTRBNzAzRkE1NEMzMzE2QTE3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkEyNzJDQkZDODc2MDExRTRBNzAzRkE1NEMzMzE2QTE3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+wn4r+wAAANdJREFUeNqMUdmqhDAMPSmu4Ipv+v+fpm/igqCimGnKvTIzt5UbKLRJz5KEmBnfsSyLSSZJQngIsoH7vjfJqqoeweo7oclYK4u6uf9b+bouHoYB4ziad1EUKMsSSimrA9IfeV1X7PuO8zytCp7nIQxDxHGMPM9vItIgbttWVPHYn1JomgZBENCHbSHous5JIMC6rkWdrD1v22Yc2EIUoygi57S1HadlV+0GH8fhBLtqN/h30kSENE3Nkft7zbnneZ5ZFPQqZDX0A+JpmuD7PrIs+9PzS4ABAF1/c+uyTTYfAAAAAElFTkSuQmCC");
+  _background-image: url("grey-star.png")/*tpa=http://waimai.meituan.com/static/img/grey-star.png*/;
+}
+
+.rest-info .stars .mark {
+  margin-left: 9px;
+}
+
+.rest-info-thirdpart {
+  margin-left: 18px;
+  margin-top: 8px;
+  color: #adadad;
+}
+
+.rest-info-thirdpart-pic {
+  height: 12px;
+  vertical-align: text-top;
+}
+
+.rest-info .na .i-triangle-dn {
+  margin-left: 5px;
+  vertical-align: 3px;
+}
+
+.rest-info .location,
+.rest-info .delivery-time,
+.rest-info .telephone {
+  margin-top: 10px;
+  width: 320px;
+  margin-left: 20px;
+}
+
+.rest-info .delivery-time span,
+.rest-info .location span,
+.rest-info .telephone span {
+  font-weight: bold;
+  color: #434343;
+}
+
+.rest-info .right-bar {
+  padding-top: 16px;
+}
+
+.rest-info .tipbox {
+  line-height: 22px;
+  position: absolute;
+  background-color: #FFFFFF;
+  border: 1px solid #ebebeb;
+  width: 180px;
+  text-align: left;
+  padding: 12px 14px;
+  top: 105px;
+  left: -54px;
+  overflow: hidden;
+  zoom: 1;
+  opacity: 0;
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  -ms-opacity: 0;
+  -o-opacity: 0;
+  filter: alpha(opacity=0);
+  
+  box-shadow: 0px 1px 9px #ccc;
+  -moz-box-shadow: 0px 1px 9px #ccc;
+  -webkit-box-shadow: 0px 1px 9px #ccc;
+  -ms-box-shadow: 0px 1px 9px #ccc;
+  -o-box-shadow: 0px 1px 9px #ccc;
+  -webkit-transition: all .6s ease-in-out;
+  -moz-transition: all .6s ease-in-out;
+  -ms-transition: all .6s ease-in-out;
+  -o-transition: all .6s ease-in-out;
+  transition: all .6s ease-in-out;
+}
+
+.tipbox p {
+  display: none;
+}
+
+.rest-info .tip-box-over .tipbox {
+  opacity: 1;
+  overflow: visible;
+  opacity: 1;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  -ms-opacity: 1;
+  -o-opacity: 1;
+  filter: alpha(opacity=100);
+  
+}
+
+.tip-box-over .tipbox p {
+  display: block;
+}
+
+.rest-info .tipbox .i-tagtop {
+  position: absolute;
+  top: -9px;
+  left: 101px;
+}
+
+.rest-info .average-speed,
+.rest-info .ack-ti,
+.rest-info .in-ti {
+  text-align: center;
+  position: relative;
+  padding-left: 6px;
+  padding-right: 16px;
+  min-width: 120px;
+  z-index: 1;
+  _width: 120px;
+  _overflow: visible;
+}
+
+.rest-info .average-speed,
+.rest-info .ack-ti {
+  background: url(spliter.png)/*tpa=http://waimai.meituan.com/static/img/spliter.png*/ no-repeat 100% 19px;
+}
+
+.rest-info .right-bar .nu {
+  font-size: 14px;
+  margin-top: 10px;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+.rest-info .right-bar strong {
+  font-family: microsoft yahei;
+  font-size: 34px;
+  font-weight: 900;
+  vertical-align: sub;
+}
+
+.rest-info .right-bar .desc {
+  position: relative;
+  z-index: 2;
+}
+
+.rest-info .up10px {
+  position: relative;
+  top: -4px;
+  left: 5px;
+}
+
+.rest-info .no-at-time{
+  padding-bottom: 8px;
+  display: block;
+  padding-top: 14px;
+  font-size: 18px;
+}
+
+.rest-info .fold-3d {
+  position: absolute;
+  right: -14px;
+  width: 14px;
+  height: 121px;
+  background: url(fold-3d.png)/*tpa=http://waimai.meituan.com/static/img/fold-3d.png*/ no-repeat;
+}
+
+.rest-info .save-up-wrapper {
+  width: 60px;
+  height: 65px;
+  padding: 19px 20px;
+  position: absolute;
+  right: -115px;
+  top: 8px;
+  text-align: center;
+  background-color: #ffffff;
+  border: 1px solid #ebebeb;
+  border-left: none;
+}
+
+.rest-info .save-up {
+  display: block;
+  margin-top: 6px;
+}
+
+.rest-info .save-up:hover i {
+  background-position: -465px -87px;
+}
+
+.rest-info .favorite i {
+  background-position: -465px -87px;
+}

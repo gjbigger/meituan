@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.mt.dao.DishTypeDao">
+	
+	<insert id="insert" parameterType="dishType" useGeneratedKeys="true" keyProperty="id">
+		insert
+		into t_dish_type(
+			name,
+			storeId
+		)
+		values(
+			#{name},
+			#{storeId}
+		)
+	</insert>
+	
+	
+	<update id="update" parameterType="dishType">
+		update t_dish_type
+		set name = #{name}
+		where id = #{id}
+	</update>
+	
+	
+	<delete id="delete" parameterType="int">
+		delete 
+		from t_dish_type
+		where id = #{id}
+	</delete>
+	
+	
+	<select id="selectByStoreIdAndName" resultType="dishType">
+		select *
+		from t_dish_type
+		where storeId = #{storeId} and name = #{name}
+	</select>
+	
+	
+	<select id="selectByStoreId"  resultType="dishType">
+		select *
+		from t_dish_type
+		where storeId = #{storeId}
+	</select>
+</mapper>

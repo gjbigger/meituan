@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.mt.dao.CommentDao">
+
+	<insert id="insert" parameterType="comment" useGeneratedKeys="true" keyProperty="id">
+		insert
+		into t_comment(
+			content,
+			orderId,
+			star
+		)
+		values (
+			#{content},
+			#{orderId},
+			#{star}
+		)
+	</insert>
+	
+	
+	<select id="selectByParams" parameterType="commentQuery" resultType="comment">
+		select 
+			c.id as id,
+			c.content as content,
+			c.orderId as orderId,
+			c.star as star
+		from t_comment c
+		left join t_order o on(c.orderId = o.id)
+		left join t_user_receive_info u on (o.userReceiveInfoId = u.id)
+		where 1=1
+		<if test="queryStoreId != null">
+			and o.storeId = #{queryStoreId}
+		</if>
+		<if test="queryUserId != null">
+			and u.userId = #{queryUserId}
+		</if>
+		<if test="queryStar != null">
+			and c.star = #{queryStar}
+		</if>
+	</select>
+	
+	
+	
+</mapper>

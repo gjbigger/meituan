@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.mt.dao.OrderDao">
+
+
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="order">
+		insert
+		into t_order(
+			status,
+			startSendTime,
+			endSendTime,
+			payOrNot,
+			createTime,
+			updateTime,
+			storeId,
+			dishDetail,
+			totalMoney,
+			userReceiveInfoId,
+			message
+		)
+		values(
+			#{status},
+			#{startSendTime},
+			#{endSendTime},
+			#{payOrNot},
+			#{createTime},
+			#{updateTime},
+			#{storeId},
+			#{dishDetail},
+			#{totalMoney},
+			#{userReceiveInfoId},
+			#{message}
+		)
+	</insert>
+
+
+
+
+
+	<update id="updateSetStatus">
+		update t_order
+		set status = #{status},
+			<if test="status == 1">
+				startSendTime = now(),
+			</if>
+			<if test="status == 2">
+				endSendTime = now(),
+			</if>
+			updateTime = now()
+		where id = #{id}
+	</update>
+	
+	
+	
+	
+	<select id="selectById"  resultType="order">
+		select *
+		from t_order
+		where id = #{id}
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	<select id="selectByParams" parameterType="orderQuery" resultType="orderDto">
+		select 
+			o.id as id,
+			o.status as status,
+			o.startSendTime as startSendTime,
+			o.endSendTime as endSendTime,
+			o.payOrNot as payOrNot,
+			o.createTime as createTime,
+			o.updateTime as updateTime,
+			o.storeId as storeId,
+			o.dishDetail as dishDetail,
+			o.totalMoney as totalMoney,
+			o.userReceiveInfoId as userReceiveInfoId,
+			u.userId as userId,
+			u.tel as tel,
+			u.address as address,
+			uu.userName as userName,
+			o.message as message
+		from t_order o
+		left join t_user_receive_info u on(o.userReceiveInfoId = u.id)
+		left join t_user uu on (uu.id = o.userReceiveInfoId)
+		where 1=1
+		<if test="queryUserId != null">
+			and u.userId = #{queryUserId}
+		</if>
+		<if test="queryStoreId != null">
+			and o.storeId = #{queryStoreId}
+		</if>
+		<if test="queryStatus != null">
+			and o.status = #{queryStatus}
+		</if>
+		order by createTime desc
+	</select>
+	
+</mapper>

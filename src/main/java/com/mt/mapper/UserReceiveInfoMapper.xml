@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.mt.dao.UserReceiveInfoDao">
+
+	<insert id="insert" parameterType="userReceiveInfo" useGeneratedKeys="true" keyProperty="id">
+		insert 
+		into t_user_receive_info(
+			userId,
+			tel,
+			address
+		)
+		values(
+			#{userId},
+			#{tel},
+			#{address}
+		)
+	</insert>
+	
+	<update id="update" parameterType="userReceiveInfo">
+		update t_user_receive_info
+		set tel = #{tel},
+			address = #{address}
+		where id = #{id}
+	</update>
+	
+	<delete id="delete">
+		delete
+		from t_user_receive_info
+		where id = #{id}
+	</delete>
+	
+	<select id="selectByUserId" resultType="userReceiveInfo">
+		select *
+		from t_user_receive_info
+		where userId = #{userId}
+	</select>
+	
+	<select id="selectById" resultType="userReceiveInfo">
+		select *
+		from t_user_receive_info
+		where id = #{id}
+	</select>
+</mapper>

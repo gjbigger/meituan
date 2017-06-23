@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.mt.dao.StoreDao">
+
+	<insert id="insert" parameterType="store" useGeneratedKeys="true" keyProperty="id">
+		insert 
+		into t_store(
+			storeLoginName,
+			storePwd,
+			name,
+			address,
+			tel,
+			hours,
+			leastMoney,
+			fee,
+			notice,
+			avgSendTime,
+			openOrClose,
+			monthSell,
+			star
+		)
+		values(
+			#{storeLoginName},
+			#{storePwd},
+			#{name},
+			#{address},
+			#{tel},
+			#{hours},
+			#{leastMoney},
+			#{fee},
+			#{notice},
+			#{avgSendTime},
+			#{openOrClose},
+			#{monthSell},
+			#{star}
+		)
+	</insert>
+	
+	
+	<update id="update" parameterType="store">
+		update t_store
+		set name = #{name},
+			address = #{address},
+			tel = #{tel},
+			hours = #{hours},
+			leastMoney = #{leastMoney},
+			fee = #{fee},
+			notice = #{notice}
+		where id = #{id}
+	</update>
+	
+	
+	
+	<update id="updateSetMonthSellAndStoreAvgSendTime">
+		update t_store
+		set monthSell = #{monthSell},
+			avgSendTime = #{avgSendTime}
+		where id = #{id}
+	</update>
+	
+	
+	<update id="updateSetOpenOrClose">
+		update t_store
+		set openOrClose = #{openOrClose}
+		where id = #{id}
+	</update>
+	
+	
+	
+	
+	<select id="selectById"  resultType="store">
+		select *
+		from t_store
+		where id = #{id}
+	</select>
+	
+	
+	<select id="selectByStoreLoginName"  resultType="store">
+		select *
+		from t_store
+		where storeLoginName = #{storeLoginName}
+	</select>
+	
+	
+	<select id="selectByParams" parameterType="storeQuery" resultType="store">
+		select *
+		from t_store
+		where 1=1
+		<if test="queryOpenOrClose != null">
+			and openOrClose = #{queryOpenOrClose}
+		</if>
+		<if test="queryName !=null and queryName != ''">
+			and name = #{queryName}
+		</if>
+	</select>
+	
+	
+</mapper>
